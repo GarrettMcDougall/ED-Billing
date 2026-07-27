@@ -30,7 +30,7 @@
   .navchip-fav { font-weight:700; }
   .navdot { width:7px; height:7px; border-radius:50%; background:var(--c); flex:none; }
 
-  section { margin-top:16px; scroll-margin-top:64px; }
+  section { margin-top:16px; scroll-margin-top:var(--hoff, 230px); }
   .secban { display:flex; align-items:center; gap:9px; font-size:15px; font-weight:800;
             background:#eef2f6;
             background:color-mix(in srgb, var(--c) 14%, #fff);
@@ -101,6 +101,19 @@
   function init() {
     var q = document.getElementById('q');
     var sections = Array.prototype.slice.call(document.querySelectorAll('#content > section'));
+    var headerEl = document.querySelector('header');
+    function setHeaderOffset() {
+      if (!headerEl) return;
+      var h = headerEl.getBoundingClientRect().height;
+      document.documentElement.style.setProperty('--hoff', (h + 10) + 'px');
+    }
+    setHeaderOffset();
+    window.addEventListener('resize', setHeaderOffset);
+    window.addEventListener('orientationchange', setHeaderOffset);
+    // Recompute after tapping a section link (nav can change height when it hides during search)
+    document.querySelectorAll('.navchip').forEach(function(a){
+      a.addEventListener('click', function(){ setTimeout(setHeaderOffset, 0); });
+    });
     var contentSections = sections.filter(function (s) { return s.id !== 'favourites'; });
     var nav = document.getElementById('nav');
     var noresult = document.getElementById('noresult');
