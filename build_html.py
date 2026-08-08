@@ -34,7 +34,7 @@ so the auto-update banner fires for people with an older copy already open.
 """
 import json as _json
 
-VERSION = "2026-08-08"
+VERSION = "2026-08-08b"
 
 OUT_PATH = "/mnt/user-data/outputs/index.html"
 
@@ -46,26 +46,25 @@ def row(desc, code, price, added=False, hidden=False, badge=None, syn=None, info
 
 SECTIONS = [
     ('assess', 'Assessments', '#0ea5e9', [
-        ('SECINFO', 'Comprehensive: full history (systems review, past history, medication review, social/domestic evaluation) + full physical exam + concomitant treatment + intermittent attendance over many hours + interpretation of labs/imaging + necessary liaison (family MD, family, other institutions/agencies). Multi-system: detailed history and exam of more than one system, part, or region. Minor: the residual/lowest tier below Multi-system \u2014 not separately defined by exclusion criteria in the Schedule.'),
         ('SUB', 'Weekday (08:00–17:00)'),
-        row('Multi system', 'H103', '$46.65'),
-        row('Comprehensive', 'H102', '$56.70'),
-        row('Minor', 'H101', '$22.65'),
+        row('Multi system', 'H103', '$46.65', info="Detailed history and examination of more than one system, part, or region."),
+        row('Comprehensive', 'H102', '$56.70', info="Full history (systems review, past history, medication review, social/domestic evaluation) + full physical exam + concomitant treatment + intermittent attendance over many hours as warranted + interpretation of labs/imaging + necessary liaison (family physician, family, other institutions, agencies)."),
+        row('Minor', 'H101', '$22.65', info="The residual/lowest tier below Multi-system \u2014 not separately defined by exclusion criteria in the Schedule."),
         row('Re-assessment*', 'H104', '$22.75', info="A reassessment must occur at least 2 hours after the original assessment/reassessment. Not payable for: (a) discharge assessments; (b) when the patient is admitted by the ED physician; or (c) when the reassessment leads directly to a referral for consultation. Limited to 3 per patient per day, 2 per physician per patient per day."),
         ('SUB', 'Evening (17:00–24:00)'),
-        row('Multi system', 'H133', '$61.50'),
-        row('Comprehensive', 'H132', '$75.40'),
-        row('Minor', 'H131', '$30.05'),
+        row('Multi system', 'H133', '$61.50', info="Detailed history and examination of more than one system, part, or region."),
+        row('Comprehensive', 'H132', '$75.40', info="Full history (systems review, past history, medication review, social/domestic evaluation) + full physical exam + concomitant treatment + intermittent attendance over many hours as warranted + interpretation of labs/imaging + necessary liaison (family physician, family, other institutions, agencies)."),
+        row('Minor', 'H131', '$30.05', info="The residual/lowest tier below Multi-system \u2014 not separately defined by exclusion criteria in the Schedule."),
         row('Re-assessment*', 'H134', '$30.05', info="A reassessment must occur at least 2 hours after the original assessment/reassessment. Not payable for: (a) discharge assessments; (b) when the patient is admitted by the ED physician; or (c) when the reassessment leads directly to a referral for consultation. Limited to 3 per patient per day, 2 per physician per patient per day."),
         ('SUB', 'Nights (00:00–08:00) incl weekend'),
-        row('Multi system', 'H123', '$80.95'),
-        row('Comprehensive', 'H122', '$99.60'),
-        row('Minor', 'H121', '$39.85'),
+        row('Multi system', 'H123', '$80.95', info="Detailed history and examination of more than one system, part, or region."),
+        row('Comprehensive', 'H122', '$99.60', info="Full history (systems review, past history, medication review, social/domestic evaluation) + full physical exam + concomitant treatment + intermittent attendance over many hours as warranted + interpretation of labs/imaging + necessary liaison (family physician, family, other institutions, agencies)."),
+        row('Minor', 'H121', '$39.85', info="The residual/lowest tier below Multi-system \u2014 not separately defined by exclusion criteria in the Schedule."),
         row('Re-assessment*', 'H124', '$39.80', info="A reassessment must occur at least 2 hours after the original assessment/reassessment. Not payable for: (a) discharge assessments; (b) when the patient is admitted by the ED physician; or (c) when the reassessment leads directly to a referral for consultation. Limited to 3 per patient per day, 2 per physician per patient per day."),
         ('SUB', 'Sat/Sun/Holidays (08:00–24:00)'),
-        row('Multi system', 'H153', '$69.60'),
-        row('Comprehensive', 'H152', '$85.70'),
-        row('Minor', 'H151', '$34.15'),
+        row('Multi system', 'H153', '$69.60', info="Detailed history and examination of more than one system, part, or region."),
+        row('Comprehensive', 'H152', '$85.70', info="Full history (systems review, past history, medication review, social/domestic evaluation) + full physical exam + concomitant treatment + intermittent attendance over many hours as warranted + interpretation of labs/imaging + necessary liaison (family physician, family, other institutions, agencies)."),
+        row('Minor', 'H151', '$34.15', info="The residual/lowest tier below Multi-system \u2014 not separately defined by exclusion criteria in the Schedule."),
         row('Re-assessment*', 'H154', '$34.15', info="A reassessment must occur at least 2 hours after the original assessment/reassessment. Not payable for: (a) discharge assessments; (b) when the patient is admitted by the ED physician; or (c) when the reassessment leads directly to a referral for consultation. Limited to 3 per patient per day, 2 per physician per patient per day."),
         ('SUB', 'Consultation & admin'),
         row('EM consultation (FRCPC)', 'H055', '$125.65'),
