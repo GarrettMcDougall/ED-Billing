@@ -34,7 +34,7 @@ so the auto-update banner fires for people with an older copy already open.
 """
 import json as _json
 
-VERSION = "2026-10-10b"
+VERSION = "2026-11-10"
 
 OUT_PATH = "/mnt/user-data/outputs/index.html"
 
@@ -185,23 +185,23 @@ SECTIONS = [
         row('Call your patient, complex', 'A007', '$44.55'),
     ]),
     ('id', 'I&D', '#14b8a6', [
-        ('SUB', 'Local anesthetic'),
-        row('SC x1 (incl trephination)', 'Z101', '$28.20'),
-        row('SC x2', 'Z173', '$33.25'),
-        row('SC x3+', 'Z174', '$44.70'),
-        row('perianal', 'Z104', '$33.25'),
-        row('ischiorectal / pilonidal', 'Z106', '$48.60'),
-        row('palmar / plantar spaces', 'Z103', '$48.60'),
-        row('Breast', 'Z140', '$33.00'),
-        row('Oral / PTA', 'Z506', '$50.90'),
-        row('Vulvar / Bartholin', 'Z714', '$25.40'),
-        ('SUB', 'Under sedation'),
-        row('SC x1', 'Z102', '$48.60'),
-        row('SC x2+', 'Z172', '$72.95'),
-        row('perianal', 'Z105', '$72.30'),
-        row('ischiorectal / pilonidal', 'Z107', '$118.30'),
-        row('palmar / plantar spaces', 'Z108', '$78.90'),
-        row('Vulvar / Bartholin', 'Z715', '$102.05'),
+        ('SUB', 'Abscess I&D — local anesthetic'),
+        row('SC abscess x1 (incl trephination)', 'Z101', '$28.20', syn='abscess boil pus drain incision drainage'),
+        row('SC abscess x2', 'Z173', '$33.25', syn='abscess boil pus drain incision drainage'),
+        row('SC abscess x3+', 'Z174', '$44.70', syn='abscess boil pus drain incision drainage'),
+        row('Perianal abscess', 'Z104', '$33.25', syn='abscess boil pus drain incision drainage'),
+        row('Ischiorectal / pilonidal abscess', 'Z106', '$48.60', syn='abscess boil pus drain incision drainage'),
+        row('Palmar / plantar space abscess', 'Z103', '$48.60', syn='abscess boil pus drain incision drainage'),
+        row('Breast abscess', 'Z140', '$33.00', syn='abscess boil pus drain incision drainage'),
+        row('Oral / PTA abscess', 'Z506', '$50.90', syn='abscess boil pus drain incision drainage'),
+        row('Vulvar / Bartholin abscess', 'Z714', '$25.40', syn='abscess boil pus drain incision drainage'),
+        ('SUB', 'Abscess I&D — under sedation'),
+        row('SC abscess x1', 'Z102', '$48.60', syn='abscess boil pus drain incision drainage'),
+        row('SC abscess x2+', 'Z172', '$72.95', syn='abscess boil pus drain incision drainage'),
+        row('Perianal abscess', 'Z105', '$72.30', syn='abscess boil pus drain incision drainage'),
+        row('Ischiorectal / pilonidal abscess', 'Z107', '$118.30', syn='abscess boil pus drain incision drainage'),
+        row('Palmar / plantar space abscess', 'Z108', '$78.90', syn='abscess boil pus drain incision drainage'),
+        row('Vulvar / Bartholin abscess', 'Z715', '$102.05', syn='abscess boil pus drain incision drainage'),
         ('SUB', 'Foreign body removal'),
         row('SC/skin, local anaesthetic', 'Z114', '$27.65'),
         row('SC/skin, general anaesthetic', 'Z115', '$97.30'),
@@ -220,7 +220,7 @@ SECTIONS = [
         row('Nail excision + cautery', 'Z130', '$68.75'),
         row('Revision of amputated finger tip', 'R629', '$241.55', syn='fingertip amputation traumatic'),
         row('Gastrostomy tube change', 'Z520', '$10.65', syn='g-tube g tube gastric tube feeding tube'),
-        row('Eyelid abscess I&D', 'Z854', '$60.00', syn='stye hordeolum boil pus infection'),
+        row('Eyelid abscess I&D', 'Z854', '$60.00', syn='abscess stye hordeolum boil pus infection drain'),
         row('Cyst removal, face/neck (1)', 'Z122', '$42.20', syn='lump bump sebaceous cyst'),
         row('Cyst removal, face/neck (2)', 'Z123', '$74.30', syn='lump bump sebaceous cyst'),
         row('Cyst removal, face/neck (3+)', 'Z124', '$85.45', syn='lump bump sebaceous cyst'),
@@ -291,7 +291,7 @@ SECTIONS = [
         row('Epistaxis packing (per side)', 'Z315', '$15.35', syn='nosebleed nose bleed'),
         row('Epistaxis cautery (per side)', 'Z314', '$11.50', syn='nosebleed nose bleed'),
         row('Epistaxis posterior packing', 'Z316', '$35.50', syn='nosebleed nose bleed'),
-        row('Drainage of abscess or haematoma (nasal septum)', 'Z301', '$55.60', syn='septal hematoma nose'),
+        row('Drainage of abscess or haematoma (nasal septum)', 'Z301', '$55.60', syn='septal hematoma nose abscess boil pus drain'),
         row('I&D of extensive pinna haematoma, w/ packing & compression dressing (general anaesthetic)', 'E317', '$139.95', syn='ear hematoma cauliflower ear auricular'),
         row('I&D of extensive pinna haematoma, w/ packing & compression dressing (local)', 'E318', '$92.40', syn='ear hematoma cauliflower ear auricular'),
         row('Ear syringing', 'G420', '$13.15', syn='ear wax cerumen', info='For syringing, curetting, or debridement of the ear canal. Listed among simple office procedures \u2014 confirm it is not bundled into the same-visit assessment fee before billing separately.'),
@@ -325,7 +325,7 @@ SECTIONS = [
         row('I&D hemorrhoid', 'Z545', '$25.25', syn='rectal bleeding piles'),
         row('Keloid injection (extensive)', 'G396', '$24.90', hidden=True, syn='scar'),
         ('SUB', 'Ultrasound'),
-        row('US-guided aspiration / I&D (professional component)', 'J149', '$56.45', info="Covers real-time ultrasound guidance for a bedside aspiration, drainage, or biopsy you perform yourself \u2014 e.g. an abscess I&D or joint aspiration under direct US visualization. Two components exist: Technical ($47.30, for owning/operating the equipment) and Professional ($56.45, for performing/interpreting). As a hospital-based ED physician using hospital equipment, bill the Professional component only. Don't bill this separately for routine diagnostic or procedural POCUS (see H100)."),
+        row('US-guided aspiration / I&D (professional component)', 'J149', '$56.45', syn='ultrasound pocus ultrasound guided us guided point of care ultrasound sonography abscess drainage aspiration', info="Covers real-time ultrasound guidance for a bedside aspiration, drainage, or biopsy you perform yourself \u2014 e.g. an abscess I&D or joint aspiration under direct US visualization. Two components exist: Technical ($47.30, for owning/operating the equipment) and Professional ($56.45, for performing/interpreting). As a hospital-based ED physician using hospital equipment, bill the Professional component only. Don't bill this separately for routine diagnostic or procedural POCUS (see H100)."),
         row('POCUS (emergency department investigative ultrasound)', 'H100', '$19.65', info="Only eligible when: (1) rendered personally by an ED physician meeting training/experience standards; (2) a radiologist is not available for urgent interpretation; and (3) clinically suspecting one of five life-threatening conditions \u2014 pericardial tamponade, cardiac standstill, intraperitoneal haemorrhage (trauma), ruptured AAA, or ruptured ectopic pregnancy. Requires a permanent image record AND an interpretive report. Maximum 2 services per patient per day (2nd only as a follow-up for the same condition). Not for general/undifferentiated POCUS use."),
         ('SUB', 'Nerve blocks lasting > 4h'),
         row('Peripheral nerve, major', 'G060', '$55.00'),
@@ -355,9 +355,9 @@ SECTIONS = [
         row('Priapism — aspiration/irrigation + injection', 'Z786', '$250.00', syn='erection penis'),
         row('Priapism — adult or child', 'S569', '$65.30', hidden=True, syn='erection penis'),
         row('Hydrocele aspiration', 'Z708', '$21.20', syn='scrotum testicle swelling'),
-        row('Scrotal abscess/haematocele I&D — local', 'Z709', '$42.45', syn='scrotum testicle abscess'),
-        row('Scrotal abscess/haematocele I&D — general anaesthetic', 'Z768', '$106.10', syn='scrotum testicle abscess'),
-        row('Incision and drainage of cyst, abscess or haematoma (vaginal)', 'Z728', '$97.20', syn='vaginal abscess bartholin'),
+        row('Scrotal abscess/haematocele I&D — local', 'Z709', '$42.45', syn='scrotum testicle abscess boil pus drain'),
+        row('Scrotal abscess/haematocele I&D — general anaesthetic', 'Z768', '$106.10', syn='scrotum testicle abscess boil pus drain'),
+        row('Incision and drainage of cyst, abscess or haematoma (vaginal)', 'Z728', '$97.20', syn='vaginal abscess bartholin boil pus drain'),
         row('Repair of laceration (vaginal)', 'P036', '$54.40', syn='perineal tear postpartum laceration'),
         ('SUB', 'Gastrointestinal / rectal'),
         row('Anoscopy / proctoscopy', 'Z543', '$8.70', syn='rectal bleeding hemorrhoids'),
@@ -596,6 +596,8 @@ SECTIONS = [
         row('Herpes simplex', '054', '', syn='cold sore hsv'),
         row('Chickenpox', '052', '', syn='varicella'),
         row('Ingrown nail', '703', ''),
+        row('Cyst – sebaceous', '706', '', syn='lump bump epidermoid'),
+        row('Neoplasm (benign) – skin', '216', '', syn='mole lesion growth lipoma wart'),
         row('Decubitus ulcer', '707', '', syn='pressure ulcer bed sore'),
         row('Scabies', '133', ''),
         ('SUB', 'MSK'),
@@ -689,7 +691,7 @@ SECTIONS = [
 
 
 # ---------- STATIC TEMPLATE PIECES (verified against the live app; edit with care) ----------
-CSS = '\n  :root {\n    --bg:#f4f6f8; --card:#ffffff; --card2:#f7fafc;\n    --ink:#15202b; --ink2:#33404c; --muted:#6b7885;\n    --border:#e3e9ef; --border2:#d5dde4; --rowline:#eef1f4;\n    --staroff:#c7ced6; --fav:#f5a524;\n    --pos:#0b7a4b; --posbg:#d9f7e6;\n    --neg:#c00000; --neg2:#b42318; --negbg:#fdecea; --negborder:#f6c9c4;\n    --accent:#153d64; --accent-ink:#ffffff;\n    --shadow:rgba(0,0,0,.12);\n    --iss-accent:#e97132; --iss-tint:#faf5f2; --iss-border:#f2c9b3;\n    --code-color:inherit;\n  }\n  [data-theme="navy"] {\n    --bg:#0a1522; --card:#122238; --card2:#0f1d30;\n    --ink:#dce6f0; --ink2:#b7c9db; --muted:#7d94ac;\n    --border:#1f3652; --border2:#28496b; --rowline:#1c344f;\n    --staroff:#3f5a78; --fav:#f5a524;\n    --pos:#4fd3a0; --posbg:#123a2c;\n    --neg:#ff8577; --neg2:#ff9c8f; --negbg:#3a1712; --negborder:#5c261c;\n    --accent:#2f6da0; --accent-ink:#ffffff;\n    --shadow:rgba(0,0,0,.45);\n    --iss-accent:#e97132; --iss-tint:#241a12; --iss-border:#4a2f1c;\n    --code-color:#6ec3ff;\n  }\n  [data-theme="oled"] {\n    --bg:#000000; --card:#141210; --card2:#100e0c;\n    --ink:#eae3d6; --ink2:#c9beac; --muted:#8a8072;\n    --border:#2a251f; --border2:#332c24; --rowline:#221d18;\n    --staroff:#4a423a; --fav:#f5a524;\n    --pos:#8fb87a; --posbg:#1c2617;\n    --neg:#e08a7d; --neg2:#e29a8e; --negbg:#2c1712; --negborder:#452720;\n    --accent:#7a5230; --accent-ink:#f0e6d8;\n    --shadow:rgba(0,0,0,.6);\n    --iss-accent:#c2823f; --iss-tint:#1c1611; --iss-border:#3a2c1c;\n    --code-color:#e0a05a;\n  }\n\n  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }\n  html { scroll-behavior:smooth; }\n  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,\n         "Liberation Sans",Arial,sans-serif; background:var(--bg); color:var(--ink);\n         font-size:16px; line-height:1.3; transition:background .15s,color .15s; }\n  .wrap { max-width:760px; margin:0 auto; padding:0 12px 60px; }\n\n  header { position:sticky; top:0; z-index:20; background:var(--bg);\n           padding:12px 12px 8px; margin:0 -12px; }\n  h1 { font-size:18px; margin:0; }\n  .titlerow { display:flex; align-items:center; justify-content:space-between; gap:8px;\n              flex-wrap:wrap; margin:0 0 8px; }\n\n  .theme-toggle { display:flex; gap:4px; background:var(--card2); border:1px solid var(--border);\n                  border-radius:8px; padding:3px; }\n  .theme-btn { border:none; background:none; padding:5px 7px; font-size:11px; font-weight:700;\n               border-radius:6px; cursor:pointer; color:var(--muted); line-height:1; white-space:nowrap; }\n  .theme-btn.on { background:var(--accent); color:var(--accent-ink); }\n\n  .search { width:100%; padding:11px 14px; font-size:16px; border:1.5px solid var(--border2);\n            border-radius:10px; background:var(--card); color:var(--ink); outline:none; }\n  .search:focus { border-color:#0ea5e9; box-shadow:0 0 0 3px #0ea5e922; }\n\n  /* ---- Current premiums panel ---- */\n  .prem-panel { background:var(--card); border:1px solid var(--border);\n                border-left:6px solid var(--c); border-radius:9px;\n                padding:11px 12px 12px; margin-top:4px; }\n  .prem-head { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px; }\n  .prem-now { font-size:13px; font-weight:800; color:var(--ink); }\n  .prem-hol { margin-left:auto; font-size:11px; font-weight:600; color:var(--ink2);\n              display:flex; align-items:center; gap:4px; cursor:pointer; }\n  .prem-hol input { width:14px; height:14px; accent-color:var(--fav); }\n  .prem-body { display:flex; flex-direction:column; gap:5px; }\n  .prem-line { display:flex; align-items:baseline; gap:9px; font-size:13px; line-height:1.5; }\n  .prem-fam { color:var(--muted); min-width:86px; font-size:11px;\n              text-transform:uppercase; letter-spacing:.3px; font-weight:700; }\n  .prem-codes { flex:1; color:var(--ink2); }\n  .prem-codes b { color:var(--code-color); font-weight:800; }\n  .prem-none { font-size:12px; color:var(--muted); font-style:italic; }\n  .prem-note { font-size:10.5px; color:var(--muted); font-style:italic; margin-top:9px; }\n  .nav { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin:10px 0 4px;\n         overflow:hidden; transition:max-height .22s ease, opacity .18s ease, margin .22s ease;\n         max-height:60vh; opacity:1; }\n  body.nav-collapsed .nav { max-height:0; opacity:0; margin-top:0; margin-bottom:0; }\n  .navtoggle { display:none; }\n  body.nav-collapsed .navtoggle { display:inline-flex; align-items:center; gap:5px;\n         margin-left:auto; font-size:11px; font-weight:700; color:var(--muted);\n         background:var(--card); border:1px solid var(--border); border-radius:7px;\n         padding:5px 9px; cursor:pointer; }\n  @media(min-width:560px) { .nav { grid-template-columns:repeat(4,1fr); } }\n  .navchip { display:flex; align-items:center; gap:5px; text-decoration:none;\n             color:var(--ink); background:var(--card); border:1px solid var(--border);\n             border-left:4px solid var(--c); border-radius:7px; padding:6px 7px;\n             font-size:11px; font-weight:600; line-height:1.15; }\n  .navchip:active { background:var(--card2); }\n  .navchip-fav { font-weight:700; }\n  .navchip-upd { font-weight:700; }\n  .navchip-prem { font-weight:700; }\n  .navdot { width:7px; height:7px; border-radius:50%; background:var(--c); flex:none; }\n\n  section { margin-top:16px; scroll-margin-top:var(--hoff, 230px); }\n  .secban { display:flex; align-items:center; gap:9px; font-size:15px; font-weight:800;\n            background:var(--card2);\n            background:color-mix(in srgb, var(--c) 14%, var(--card));\n            border:1px solid var(--border);\n            border:1px solid color-mix(in srgb, var(--c) 30%, var(--card));\n            border-left:6px solid var(--c);\n            padding:9px 12px; border-radius:9px; color:var(--ink); }\n  .bandot { width:11px; height:11px; border-radius:50%; background:var(--c); flex:none; }\n  .top { margin-left:auto; font-size:11px; font-weight:600; color:var(--muted); text-decoration:none; }\n  .rows { margin-top:4px; }\n\n  .sub { font-size:11px; font-weight:700; letter-spacing:.4px; text-transform:uppercase;\n         color:var(--muted); padding:9px 6px 3px; }\n  .note { font-size:11.5px; font-style:italic; color:var(--neg); padding:5px 6px; }\n\n  .row { display:flex; align-items:center; gap:9px; background:var(--card);\n         border-bottom:1px solid var(--rowline); border-left:6px solid var(--c);\n         padding:10px 12px 10px 8px; }\n  .code { font-size:16px; font-weight:800; min-width:56px; letter-spacing:.3px; color:var(--code-color); }\n  .desc { flex:1; font-size:13.5px; color:var(--ink2); }\n  .price { font-size:15px; font-weight:800; color:var(--pos); white-space:nowrap; }\n  .new { display:inline-block; font-size:9px; font-weight:800; color:var(--pos);\n         background:var(--posbg); border-radius:4px; padding:1px 5px; margin-left:6px;\n         vertical-align:middle; letter-spacing:.3px; }\n  .gbadge { display:inline-block; font-size:9px; font-weight:800; border-radius:4px;\n            padding:1px 6px; margin-left:6px; vertical-align:middle; letter-spacing:.3px; }\n  .gbadge.g35 { color:#0a5a8a; background:#dceefc; }\n  [data-theme="navy"] .gbadge.g35, [data-theme="oled"] .gbadge.g35 { color:#8fd0ff; background:#0f2e46; }\n  .gbadge.gno { color:var(--neg2); background:var(--negbg); }\n  .gbadge.g3only { color:#8a5a00; background:#fdf0d5; }\n  [data-theme="navy"] .gbadge.g3only, [data-theme="oled"] .gbadge.g3only { color:#f0c060; background:#3a2c0f; }\n  .gbadge.fxno { color:#4b5563; background:#e5e7eb; }\n  [data-theme="navy"] .gbadge.fxno, [data-theme="oled"] .gbadge.fxno { color:#c4cad3; background:#2a333f; }\n  .gbadge.fxclosed { color:#6d28d9; background:#ede9fe; }\n  [data-theme="navy"] .gbadge.fxclosed, [data-theme="oled"] .gbadge.fxclosed { color:#c4b5fd; background:#2f2350; }\n\n  /* ---- Info (i) buttons + collapsible panels ---- */\n  .row.has-info { border-bottom:none; border-radius:0; }\n  .info-btn { border:1.5px solid var(--border2); background:var(--card); color:var(--muted);\n              width:19px; height:19px; border-radius:50%; font-size:11px; font-weight:800;\n              cursor:pointer; flex:none; display:inline-flex; align-items:center;\n              justify-content:center; padding:0; line-height:1; font-style:italic;\n              font-family:Georgia,"Times New Roman",serif; }\n  .info-btn.open { background:var(--c); border-color:var(--c); color:#fff; }\n  .info-panel { display:none; font-size:12px; color:var(--ink2); background:var(--card2);\n                border:1px solid var(--border); border-top:none; border-left:6px solid var(--c);\n                border-radius:0 0 8px 8px; padding:9px 12px 11px; margin:0 0 4px;\n                line-height:1.55; }\n  .info-panel.open { display:block; }\n  .info-panel.hidden { display:none !important; }\n  .sec-info { font-size:11.5px; color:var(--ink2); background:var(--card2); border:1px solid var(--border);\n              border-radius:7px; padding:8px 10px; margin:6px 0; line-height:1.5; }\n\n  .star { border:none; background:none; font-size:20px; line-height:1; cursor:pointer;\n          color:var(--staroff); padding:0 2px; flex:none; width:26px; }\n  .star.on { color:var(--fav); }\n\n  /* search-only rows: hidden by default, shown when filtering or when favourited-clone */\n  .srch { display:none; }\n  body.searching .srch { display:flex; }\n\n  .hidden { display:none !important; }\n  .noresult { text-align:center; color:var(--muted); padding:30px 10px; font-size:14px; }\n  .fav-empty { font-size:13px; color:var(--muted); font-style:italic; padding:12px 8px; }\n\n  /* ---- Sedation calculator ---- */\n  .calc { background:var(--card); border:1px solid var(--border); border-left:6px solid #f43f5e;\n          border-radius:9px; padding:12px 12px 14px; margin-top:4px; }\n  .calc-h { font-size:14px; font-weight:800; margin-bottom:10px; }\n  .calc-row { display:block; margin:10px 0; }\n  .calc-lbl { display:block; font-size:11px; font-weight:700; text-transform:uppercase;\n              letter-spacing:.3px; color:var(--muted); margin-bottom:5px; }\n  .calc-in { width:100%; padding:9px 11px; font-size:16px; border:1.5px solid var(--border2);\n             border-radius:8px; outline:none; background:var(--card); color:var(--ink); }\n  .calc-in:focus { border-color:#f43f5e; box-shadow:0 0 0 3px #f43f5e22; }\n  .ac-wrap { position:relative; }\n  .ac-list { position:absolute; left:0; right:0; top:calc(100% + 4px); z-index:30;\n             background:var(--card); border:1px solid var(--border2); border-radius:8px; overflow:hidden;\n             box-shadow:0 6px 18px var(--shadow); display:none; max-height:230px; overflow-y:auto; }\n  .ac-list.on { display:block; }\n  .ac-item { display:flex; align-items:center; gap:9px; padding:9px 11px; cursor:pointer;\n             border-bottom:1px solid var(--rowline); }\n  .ac-item:last-child { border-bottom:none; }\n  .ac-item.active, .ac-item:active { background:#f43f5e14; }\n  .ac-item .acc { font-weight:800; min-width:52px; color:#f43f5e; }\n  .ac-item .acd { font-size:13px; color:var(--ink2); }\n  .ac-none { padding:9px 11px; color:var(--muted); font-size:13px; }\n  #c-proc-picked.set { color:var(--pos); font-weight:600; }\n  .calc-hint { font-size:11px; color:var(--muted); margin:-4px 0 8px; }\n  .seg, .chips { display:flex; flex-wrap:wrap; gap:6px; }\n  .seg button, .chips button { font-size:13px; font-weight:600; padding:8px 11px;\n             border:1.5px solid var(--border2); background:var(--card); color:var(--ink2); border-radius:8px;\n             cursor:pointer; }\n  .seg button.on { background:#f43f5e; border-color:#f43f5e; color:#fff; }\n  .chips button.on { background:var(--pos); border-color:var(--pos); color:#fff; }\n  .calc-out { margin-top:12px; background:var(--card2); border:1px solid var(--border);\n              border-radius:8px; padding:11px 12px; font-size:14px; min-height:44px; }\n  .calc-out .line { display:flex; justify-content:space-between; gap:10px; padding:3px 0;\n                    border-bottom:1px solid var(--rowline); }\n  .calc-out .line:last-child { border-bottom:none; }\n  .calc-out .cc { font-weight:800; }\n  .calc-out .cu { color:var(--muted); font-size:12px; }\n  .calc-out .tot { font-weight:800; margin-top:6px; }\n  .calc-out .warn { color:var(--neg2); font-size:12px; margin-top:6px; }\n  .calc-copy { margin-top:10px; width:100%; padding:10px; font-size:14px; font-weight:700;\n               border:none; border-radius:8px; background:var(--accent); color:var(--accent-ink); cursor:pointer; }\n  .calc-copy.done { background:var(--pos); color:#fff; }\n  #updbar { position:fixed; left:0; right:0; bottom:0; z-index:50; background:var(--accent);\n            color:var(--accent-ink); font-size:13px; text-align:center; padding:10px 12px; }\n  #updbar button { margin-left:8px; font-size:13px; font-weight:700; padding:6px 12px;\n            border:none; border-radius:7px; background:var(--fav); color:#15202b; cursor:pointer; }\n  #forcerefresh { display:inline-flex; align-items:center; gap:6px; font-size:14px;\n            font-weight:700; color:var(--accent); background:var(--card); border:1.5px solid var(--accent);\n            border-radius:9px; padding:10px 18px; cursor:pointer; margin:4px auto 10px;\n            box-shadow:0 1px 2px var(--shadow); }\n  #forcerefresh:active { background:var(--accent); color:var(--accent-ink); }\n  #forcerefresh.done { background:var(--pos); border-color:var(--pos); color:#fff; }\n  #forcerefresh.checking { opacity:.7; }\n  /* ---- Expandable row + ISS calculator ---- */\n  .row-expand { cursor:pointer; }\n  .exp-hint { display:inline-block; margin-left:8px; font-size:10px; font-weight:700;\n              color:var(--iss-accent); background:var(--iss-tint); border-radius:4px; padding:1px 6px;\n              vertical-align:middle; }\n  .row-expand.open .exp-hint { background:var(--iss-accent); color:#fff; }\n  .expand-panel { display:none; }\n  .expand-panel.open { display:block; }\n  .iss { background:var(--card); border:1px solid var(--iss-border); border-left:6px solid var(--iss-accent);\n         border-radius:0 0 9px 9px; padding:12px; margin:0 0 4px; }\n  .iss-reminder { font-size:11px; color:var(--ink2); background:var(--iss-tint); border-radius:7px;\n                  padding:7px 9px; margin-bottom:11px; line-height:1.5; }\n  .iss-grid { display:flex; flex-direction:column; gap:10px; }\n  .iss-reg { display:flex; flex-direction:column; gap:5px; }\n  .iss-name { font-size:13px; font-weight:700; }\n  .iss-sub { font-weight:400; color:var(--muted); font-size:11px; }\n  .iss-seg { display:flex; gap:5px; flex-wrap:wrap; }\n  .iss-seg button { flex:1; min-width:36px; font-size:14px; font-weight:700; padding:8px 0;\n             border:1.5px solid var(--border2); background:var(--card); color:var(--ink2); border-radius:8px;\n             cursor:pointer; }\n  .iss-seg button.on { background:var(--iss-accent); border-color:var(--iss-accent); color:#fff; }\n  .iss-seg button.on.sev6 { background:var(--neg2); border-color:var(--neg2); }\n  .iss-out { margin-top:13px; background:var(--card2); border:1px solid var(--border); border-radius:9px;\n             padding:12px; text-align:center; }\n  .iss-score { display:flex; align-items:baseline; justify-content:center; gap:10px; }\n  .iss-val { font-size:34px; font-weight:800; line-height:1; }\n  .iss-lbl { font-size:13px; font-weight:700; }\n  .iss-out.major { background:var(--negbg); border-color:var(--negborder); }\n  .iss-out.major .iss-val { color:var(--neg2); }\n  .iss-out.minor .iss-val { color:var(--pos); }\n  .iss-detail { font-size:11.5px; color:var(--muted); margin-top:7px; line-height:1.5; }\n  .iss-flag { display:inline-block; font-weight:800; font-size:12px; padding:3px 9px;\n              border-radius:6px; margin-top:8px; }\n  .iss-flag.yes { background:var(--neg2); color:#fff; }\n  .iss-flag.no { background:var(--posbg); color:var(--pos); }\n  .iss-reset { margin-top:10px; width:100%; padding:9px; font-size:13px; font-weight:700;\n               border:1.5px solid var(--border2); background:var(--card); color:var(--ink2); border-radius:8px;\n               cursor:pointer; }\n  .iss-note { font-size:10.5px; color:var(--muted); font-style:italic; margin-top:9px; line-height:1.45; }\n  .upd-card { background:var(--card); border:1px solid var(--border); border-left:6px solid #0891b2;\n              border-radius:9px; padding:14px 14px 16px; margin-top:4px; text-align:center; }\n  #forcerefresh { margin:0 auto 10px; }\n  .upd-meta { font-size:12px; color:var(--muted); line-height:1.45; }\n  .footmeta { font-size:10.5px; color:var(--muted); font-style:italic; }\n  footer { margin-top:26px; text-align:center; display:flex; flex-direction:column; align-items:center; }\n\n  body:not(.searching) section.sec-closed { display:none; }\n  .navchip.navchip-tap::after { content:\' \\25B8\'; opacity:.55; }\n'
+CSS = '\n  :root {\n    --bg:#f4f6f8; --card:#ffffff; --card2:#f7fafc;\n    --ink:#15202b; --ink2:#33404c; --muted:#6b7885;\n    --border:#e3e9ef; --border2:#d5dde4; --rowline:#eef1f4;\n    --staroff:#c7ced6; --fav:#f5a524;\n    --pos:#0b7a4b; --posbg:#d9f7e6;\n    --neg:#c00000; --neg2:#b42318; --negbg:#fdecea; --negborder:#f6c9c4;\n    --accent:#153d64; --accent-ink:#ffffff;\n    --shadow:rgba(0,0,0,.12);\n    --iss-accent:#e97132; --iss-tint:#faf5f2; --iss-border:#f2c9b3;\n    --code-color:inherit;\n  }\n  [data-theme="navy"] {\n    --bg:#0a1522; --card:#122238; --card2:#0f1d30;\n    --ink:#dce6f0; --ink2:#b7c9db; --muted:#7d94ac;\n    --border:#1f3652; --border2:#28496b; --rowline:#1c344f;\n    --staroff:#3f5a78; --fav:#f5a524;\n    --pos:#4fd3a0; --posbg:#123a2c;\n    --neg:#ff8577; --neg2:#ff9c8f; --negbg:#3a1712; --negborder:#5c261c;\n    --accent:#2f6da0; --accent-ink:#ffffff;\n    --shadow:rgba(0,0,0,.45);\n    --iss-accent:#e97132; --iss-tint:#241a12; --iss-border:#4a2f1c;\n    --code-color:#6ec3ff;\n  }\n  [data-theme="oled"] {\n    --bg:#000000; --card:#141210; --card2:#100e0c;\n    --ink:#eae3d6; --ink2:#c9beac; --muted:#8a8072;\n    --border:#2a251f; --border2:#332c24; --rowline:#221d18;\n    --staroff:#4a423a; --fav:#f5a524;\n    --pos:#8fb87a; --posbg:#1c2617;\n    --neg:#e08a7d; --neg2:#e29a8e; --negbg:#2c1712; --negborder:#452720;\n    --accent:#7a5230; --accent-ink:#f0e6d8;\n    --shadow:rgba(0,0,0,.6);\n    --iss-accent:#c2823f; --iss-tint:#1c1611; --iss-border:#3a2c1c;\n    --code-color:#e0a05a;\n  }\n\n  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }\n  html { scroll-behavior:smooth; }\n  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,\n         "Liberation Sans",Arial,sans-serif; background:var(--bg); color:var(--ink);\n         font-size:16px; line-height:1.3; transition:background .15s,color .15s; }\n  .wrap { max-width:760px; margin:0 auto; padding:0 12px 60px; }\n\n  header { position:sticky; top:0; z-index:20; background:var(--bg);\n           padding:12px 12px 8px; margin:0 -12px; }\n  h1 { font-size:18px; margin:0; }\n  .titlerow { display:flex; align-items:center; justify-content:space-between; gap:8px;\n              flex-wrap:wrap; margin:0 0 8px; }\n\n  .theme-toggle { display:flex; gap:4px; background:var(--card2); border:1px solid var(--border);\n                  border-radius:8px; padding:3px; }\n  .theme-btn { border:none; background:none; padding:5px 7px; font-size:11px; font-weight:700;\n               border-radius:6px; cursor:pointer; color:var(--muted); line-height:1; white-space:nowrap; }\n  .theme-btn.on { background:var(--accent); color:var(--accent-ink); }\n\n  .search { width:100%; padding:11px 14px; font-size:16px; border:1.5px solid var(--border2);\n            border-radius:10px; background:var(--card); color:var(--ink); outline:none; }\n  .search:focus { border-color:#0ea5e9; box-shadow:0 0 0 3px #0ea5e922; }\n\n  /* ---- Current premiums panel ---- */\n  .prem-panel { background:var(--card); border:1px solid var(--border);\n                border-left:6px solid var(--c); border-radius:9px;\n                padding:11px 12px 12px; margin-top:4px; }\n  .prem-head { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px; }\n  .prem-now { font-size:13px; font-weight:800; color:var(--ink); }\n  .prem-hol { margin-left:auto; font-size:11px; font-weight:600; color:var(--ink2);\n              display:flex; align-items:center; gap:4px; cursor:pointer; }\n  .prem-hol input { width:14px; height:14px; accent-color:var(--fav); }\n  .prem-body { display:flex; flex-direction:column; gap:5px; }\n  .prem-line { display:flex; align-items:baseline; gap:9px; font-size:13px; line-height:1.5; }\n  .prem-fam { color:var(--muted); min-width:86px; font-size:11px;\n              text-transform:uppercase; letter-spacing:.3px; font-weight:700; }\n  .prem-codes { flex:1; color:var(--ink2); }\n  .prem-codes b { color:var(--code-color); font-weight:800; }\n  .prem-none { font-size:12px; color:var(--muted); font-style:italic; }\n  .prem-note { font-size:10.5px; color:var(--muted); font-style:italic; margin-top:9px; }\n  .nav { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin:10px 0 4px;\n         overflow:hidden; transition:max-height .22s ease, opacity .18s ease, margin .22s ease;\n         max-height:60vh; opacity:1; }\n  body.nav-collapsed .nav { max-height:0; opacity:0; margin-top:0; margin-bottom:0; }\n  .navtoggle { display:none; }\n  body.nav-collapsed .navtoggle { display:inline-flex; align-items:center; gap:5px;\n         margin-left:auto; font-size:11px; font-weight:700; color:var(--muted);\n         background:var(--card); border:1px solid var(--border); border-radius:7px;\n         padding:5px 9px; cursor:pointer; }\n  @media(min-width:560px) { .nav { grid-template-columns:repeat(4,1fr); } }\n  .navchip { display:flex; align-items:center; gap:5px; text-decoration:none;\n             color:var(--ink); background:var(--card); border:1px solid var(--border);\n             border-left:4px solid var(--c); border-radius:7px; padding:6px 7px;\n             font-size:11px; font-weight:600; line-height:1.15; }\n  .navchip:active { background:var(--card2); }\n  .navchip-fav { font-weight:700; }\n  .navchip-upd { font-weight:700; }\n  .navchip-prem { font-weight:700; }\n  .navdot { width:7px; height:7px; border-radius:50%; background:var(--c); flex:none; }\n\n  section { margin-top:16px; scroll-margin-top:var(--hoff, 230px); }\n  .secban { display:flex; align-items:center; gap:9px; font-size:15px; font-weight:800;\n            background:var(--card2);\n            background:color-mix(in srgb, var(--c) 14%, var(--card));\n            border:1px solid var(--border);\n            border:1px solid color-mix(in srgb, var(--c) 30%, var(--card));\n            border-left:6px solid var(--c);\n            padding:9px 12px; border-radius:9px; color:var(--ink); }\n  .bandot { width:11px; height:11px; border-radius:50%; background:var(--c); flex:none; }\n  .top { margin-left:auto; font-size:11px; font-weight:600; color:var(--muted); text-decoration:none; }\n  .rows { margin-top:4px; }\n\n  .sub { font-size:11px; font-weight:700; letter-spacing:.4px; text-transform:uppercase;\n         color:var(--muted); padding:9px 6px 3px; }\n  .note { font-size:11.5px; font-style:italic; color:var(--neg); padding:5px 6px; }\n\n  .row { display:flex; align-items:center; gap:9px; background:var(--card);\n         border-bottom:1px solid var(--rowline); border-left:6px solid var(--c);\n         padding:10px 12px 10px 8px; }\n  .code { font-size:16px; font-weight:800; min-width:56px; letter-spacing:.3px; color:var(--code-color); }\n  .desc { flex:1; font-size:13.5px; color:var(--ink2); }\n  .price { font-size:15px; font-weight:800; color:var(--pos); white-space:nowrap; }\n  .new { display:inline-block; font-size:9px; font-weight:800; color:var(--pos);\n         background:var(--posbg); border-radius:4px; padding:1px 5px; margin-left:6px;\n         vertical-align:middle; letter-spacing:.3px; }\n  .gbadge { display:inline-block; font-size:9px; font-weight:800; border-radius:4px;\n            padding:1px 6px; margin-left:6px; vertical-align:middle; letter-spacing:.3px; }\n  .gbadge.g35 { color:#0a5a8a; background:#dceefc; }\n  [data-theme="navy"] .gbadge.g35, [data-theme="oled"] .gbadge.g35 { color:#8fd0ff; background:#0f2e46; }\n  .gbadge.gno { color:var(--neg2); background:var(--negbg); }\n  .gbadge.g3only { color:#8a5a00; background:#fdf0d5; }\n  [data-theme="navy"] .gbadge.g3only, [data-theme="oled"] .gbadge.g3only { color:#f0c060; background:#3a2c0f; }\n  .gbadge.fxno { color:#4b5563; background:#e5e7eb; }\n  [data-theme="navy"] .gbadge.fxno, [data-theme="oled"] .gbadge.fxno { color:#c4cad3; background:#2a333f; }\n  .gbadge.fxclosed { color:#6d28d9; background:#ede9fe; }\n  [data-theme="navy"] .gbadge.fxclosed, [data-theme="oled"] .gbadge.fxclosed { color:#c4b5fd; background:#2f2350; }\n\n  /* ---- Info (i) buttons + collapsible panels ---- */\n  .row.has-info { border-bottom:none; border-radius:0; }\n  .info-btn { border:1.5px solid var(--border2); background:var(--card); color:var(--muted);\n              width:19px; height:19px; border-radius:50%; font-size:11px; font-weight:800;\n              cursor:pointer; flex:none; display:inline-flex; align-items:center;\n              justify-content:center; padding:0; line-height:1; font-style:italic;\n              font-family:Georgia,"Times New Roman",serif; }\n  .info-btn.open { background:var(--c); border-color:var(--c); color:#fff; }\n  .info-panel { display:none; font-size:12px; color:var(--ink2); background:var(--card2);\n                border:1px solid var(--border); border-top:none; border-left:6px solid var(--c);\n                border-radius:0 0 8px 8px; padding:9px 12px 11px; margin:0 0 4px;\n                line-height:1.55; }\n  .info-panel.open { display:block; }\n  .info-panel.hidden { display:none !important; }\n  .sec-info { font-size:11.5px; color:var(--ink2); background:var(--card2); border:1px solid var(--border);\n              border-radius:7px; padding:8px 10px; margin:6px 0; line-height:1.5; }\n\n  .star { border:none; background:none; font-size:20px; line-height:1; cursor:pointer;\n          color:var(--staroff); padding:0 2px; flex:none; width:26px; }\n  .star.on { color:var(--fav); }\n\n  /* search-only rows: hidden by default, shown when filtering or when favourited-clone */\n  .srch { display:none; }\n  body.searching .srch { display:flex; }\n\n  .hidden { display:none !important; }\n  .noresult { text-align:center; color:var(--muted); padding:30px 10px; font-size:14px; }\n  .fav-empty { font-size:13px; color:var(--muted); font-style:italic; padding:12px 8px; }\n\n  /* ---- Sedation calculator ---- */\n  .calc { background:var(--card); border:1px solid var(--border); border-left:6px solid #f43f5e;\n          border-radius:9px; padding:12px 12px 14px; margin-top:4px; }\n  .calc-h { font-size:14px; font-weight:800; margin-bottom:10px; }\n  .calc-row { display:block; margin:10px 0; }\n  .calc-lbl { display:block; font-size:11px; font-weight:700; text-transform:uppercase;\n              letter-spacing:.3px; color:var(--muted); margin-bottom:5px; }\n  .calc-in { width:100%; padding:9px 11px; font-size:16px; border:1.5px solid var(--border2);\n             border-radius:8px; outline:none; background:var(--card); color:var(--ink); }\n  .calc-in:focus { border-color:#f43f5e; box-shadow:0 0 0 3px #f43f5e22; }\n  .ac-wrap { position:relative; }\n  .ac-list { position:absolute; left:0; right:0; top:calc(100% + 4px); z-index:30;\n             background:var(--card); border:1px solid var(--border2); border-radius:8px; overflow:hidden;\n             box-shadow:0 6px 18px var(--shadow); display:none; max-height:230px; overflow-y:auto; }\n  .ac-list.on { display:block; }\n  .ac-item { display:flex; align-items:center; gap:9px; padding:9px 11px; cursor:pointer;\n             border-bottom:1px solid var(--rowline); }\n  .ac-item:last-child { border-bottom:none; }\n  .ac-item.active, .ac-item:active { background:#f43f5e14; }\n  .ac-item .acc { font-weight:800; min-width:52px; color:#f43f5e; }\n  .ac-item .acd { font-size:13px; color:var(--ink2); }\n  .ac-none { padding:9px 11px; color:var(--muted); font-size:13px; }\n  #c-proc-picked.set { color:var(--pos); font-weight:600; }\n  .calc-hint { font-size:11px; color:var(--muted); margin:-4px 0 8px; }\n  .seg, .chips { display:flex; flex-wrap:wrap; gap:6px; }\n  .seg button, .chips button { font-size:13px; font-weight:600; padding:8px 11px;\n             border:1.5px solid var(--border2); background:var(--card); color:var(--ink2); border-radius:8px;\n             cursor:pointer; }\n  .seg button.on { background:#f43f5e; border-color:#f43f5e; color:#fff; }\n  .chips button.on { background:var(--pos); border-color:var(--pos); color:#fff; }\n  .calc-out { margin-top:12px; background:var(--card2); border:1px solid var(--border);\n              border-radius:8px; padding:11px 12px; font-size:14px; min-height:44px; }\n  .calc-out .line { display:flex; justify-content:space-between; gap:10px; padding:3px 0;\n                    border-bottom:1px solid var(--rowline); }\n  .calc-out .line:last-child { border-bottom:none; }\n  .calc-out .cc { font-weight:800; }\n  .calc-out .cu { color:var(--muted); font-size:12px; }\n  .calc-out .tot { font-weight:800; margin-top:6px; }\n  .calc-out .warn { color:var(--neg2); font-size:12px; margin-top:6px; }\n  .calc-copy { margin-top:10px; width:100%; padding:10px; font-size:14px; font-weight:700;\n               border:none; border-radius:8px; background:var(--accent); color:var(--accent-ink); cursor:pointer; }\n  .calc-copy.done { background:var(--pos); color:#fff; }\n  #updbar { position:fixed; left:0; right:0; bottom:0; z-index:50; background:var(--accent);\n            color:var(--accent-ink); font-size:13px; text-align:center; padding:10px 12px; }\n  #updbar button { margin-left:8px; font-size:13px; font-weight:700; padding:6px 12px;\n            border:none; border-radius:7px; background:var(--fav); color:#15202b; cursor:pointer; }\n  #forcerefresh { display:inline-flex; align-items:center; gap:6px; font-size:14px;\n            font-weight:700; color:var(--accent); background:var(--card); border:1.5px solid var(--accent);\n            border-radius:9px; padding:10px 18px; cursor:pointer; margin:4px auto 10px;\n            box-shadow:0 1px 2px var(--shadow); }\n  #forcerefresh:active { background:var(--accent); color:var(--accent-ink); }\n  #forcerefresh.done { background:var(--pos); border-color:var(--pos); color:#fff; }\n  #forcerefresh.checking { opacity:.7; }\n  /* ---- Expandable row + ISS calculator ---- */\n  .row-expand { cursor:pointer; }\n  .exp-hint { display:inline-block; margin-left:8px; font-size:10px; font-weight:700;\n              color:var(--iss-accent); background:var(--iss-tint); border-radius:4px; padding:1px 6px;\n              vertical-align:middle; }\n  .row-expand.open .exp-hint { background:var(--iss-accent); color:#fff; }\n  .expand-panel { display:none; }\n  .expand-panel.open { display:block; }\n  .iss { background:var(--card); border:1px solid var(--iss-border); border-left:6px solid var(--iss-accent);\n         border-radius:0 0 9px 9px; padding:12px; margin:0 0 4px; }\n  .iss-reminder { font-size:11px; color:var(--ink2); background:var(--iss-tint); border-radius:7px;\n                  padding:7px 9px; margin-bottom:11px; line-height:1.5; }\n  .iss-grid { display:flex; flex-direction:column; gap:10px; }\n  .iss-reg { display:flex; flex-direction:column; gap:5px; }\n  .iss-name { font-size:13px; font-weight:700; }\n  .iss-sub { font-weight:400; color:var(--muted); font-size:11px; }\n  .iss-seg { display:flex; gap:5px; flex-wrap:wrap; }\n  .iss-seg button { flex:1; min-width:36px; font-size:14px; font-weight:700; padding:8px 0;\n             border:1.5px solid var(--border2); background:var(--card); color:var(--ink2); border-radius:8px;\n             cursor:pointer; }\n  .iss-seg button.on { background:var(--iss-accent); border-color:var(--iss-accent); color:#fff; }\n  .iss-seg button.on.sev6 { background:var(--neg2); border-color:var(--neg2); }\n  .iss-out { margin-top:13px; background:var(--card2); border:1px solid var(--border); border-radius:9px;\n             padding:12px; text-align:center; }\n  .iss-score { display:flex; align-items:baseline; justify-content:center; gap:10px; }\n  .iss-val { font-size:34px; font-weight:800; line-height:1; }\n  .iss-lbl { font-size:13px; font-weight:700; }\n  .iss-out.major { background:var(--negbg); border-color:var(--negborder); }\n  .iss-out.major .iss-val { color:var(--neg2); }\n  .iss-out.minor .iss-val { color:var(--pos); }\n  .iss-detail { font-size:11.5px; color:var(--muted); margin-top:7px; line-height:1.5; }\n  .iss-flag { display:inline-block; font-weight:800; font-size:12px; padding:3px 9px;\n              border-radius:6px; margin-top:8px; }\n  .iss-flag.yes { background:var(--neg2); color:#fff; }\n  .iss-flag.no { background:var(--posbg); color:var(--pos); }\n  .iss-reset { margin-top:10px; width:100%; padding:9px; font-size:13px; font-weight:700;\n               border:1.5px solid var(--border2); background:var(--card); color:var(--ink2); border-radius:8px;\n               cursor:pointer; }\n  .iss-note { font-size:10.5px; color:var(--muted); font-style:italic; margin-top:9px; line-height:1.45; }\n  .upd-card { background:var(--card); border:1px solid var(--border); border-left:6px solid #0891b2;\n              border-radius:9px; padding:14px 14px 16px; margin-top:4px; text-align:center; }\n  #forcerefresh { margin:0 auto 10px; }\n  .upd-meta { font-size:12px; color:var(--muted); line-height:1.45; }\n  .footmeta { font-size:10.5px; color:var(--muted); font-style:italic; }\n  footer { margin-top:26px; text-align:center; display:flex; flex-direction:column; align-items:center; }\n\n  body:not(.searching) section.sec-closed { display:none; }\n  .navchip.navchip-tap::after { content:\' \\25B8\'; opacity:.55; }\n\n  .row { position:relative; }\n  .row .dx { position:absolute; left:42px; bottom:1px; font-size:9.5px; font-weight:700; letter-spacing:.3px; color:var(--muted); line-height:1; pointer-events:none; white-space:nowrap; }\n'
 
 EARLY_THEME_SCRIPT = "<script>(function(){try{var t=localStorage.getItem('edbill_theme_v1');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>"
 
@@ -706,6 +708,149 @@ MAIN_JS = '\n(function () {\n  var STORE_KEY = \'edbill_favs_v1\';\n\n  function
 
 def esc(t):
     return (t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+
+DX_MAP = {
+    'Z915': '930',
+    'Z866': '930',
+    'Z311': '930',
+    'Z312': '930',
+    'Z541': '930',
+    'Z432': '930',
+    'Z756': '560',
+    'Z128': '703',
+    'Z130': '703',
+    'Z122': '706',
+    'Z123': '706',
+    'Z124': '706',
+    'Z162': '216',
+    'Z163': '216',
+    'Z164': '216',
+    'D001': '834',
+    'D004': '834',
+    'D007': '839',
+    'D009': '832',
+    'D012': '832',
+    'D014': '831',
+    'D015': '831',
+    'D016': '831',
+    'D025': '831',
+    'D026': '839',
+    'D027': '834',
+    'D030': '839',
+    'D031': '839',
+    'D033': '839',
+    'D035': '839',
+    'D038': '839',
+    'D040': '839',
+    'D042': '839',
+    'D062': '839',
+    'E199': '879',
+    'E530': '879',
+    'E558': '816',
+    'E560': '816',
+    'E577': '815',
+    'E578': '816',
+    'F004': '816',
+    'F005': '816',
+    'F007': '816',
+    'F008': '815',
+    'F009': '815',
+    'F014': '813',
+    'F016': '814',
+    'F018': '814',
+    'F022': '813',
+    'F024': '813',
+    'F025': '813',
+    'F027': '813',
+    'F028': '813',
+    'F029': '812',
+    'F031': '813',
+    'F032': '813',
+    'F034': '813',
+    'F035': '813',
+    'F037': '812',
+    'F039': '812',
+    'F040': '812',
+    'F042': '812',
+    'F043': '812',
+    'F046': '813',
+    'F047': '812',
+    'F048': '812',
+    'F050': '812',
+    'F051': '812',
+    'F053': '812',
+    'F054': '812',
+    'F056': '816',
+    'F057': '816',
+    'F058': '816',
+    'F061': '829',
+    'F062': '829',
+    'F066': '829',
+    'F067': '829',
+    'F070': '829',
+    'F074': '824',
+    'F075': '824',
+    'F078': '823',
+    'F079': '823',
+    'F082': '823',
+    'F083': '823',
+    'F085': '829',
+    'F094': '821',
+    'F095': '821',
+    'F102': '814',
+    'F104': '824',
+    'F110': '810',
+    'F119': '829',
+    'F136': '802',
+    'F137': '802',
+    'G403': '386',
+    'G420': '388',
+    'R024': '879',
+    'R517': '930',
+    'R629': '884',
+    'R637': '949',
+    'R660': '949',
+    'R661': '949',
+    'R662': '949',
+    'Z101': '682',
+    'Z102': '682',
+    'Z103': '682',
+    'Z104': '566',
+    'Z105': '566',
+    'Z106': '566/682',
+    'Z107': '566/682',
+    'Z108': '682',
+    'Z114': '930',
+    'Z115': '930',
+    'Z129': '703',
+    'Z140': '611',
+    'Z154': '879',
+    'Z172': '682',
+    'Z173': '682',
+    'Z174': '682',
+    'Z175': '884/894',
+    'Z176': '884/894',
+    'Z177': '879',
+    'Z179': '884/894',
+    'Z187': '879',
+    'Z188': '884/894',
+    'Z189': '884',
+    'Z190': '879',
+    'Z191': '884/894',
+    'Z192': '879',
+    'Z314': '786',
+    'Z315': '786',
+    'Z316': '786',
+    'Z538': '550',
+    'Z714': '616',
+    'Z715': '616',
+    'Z728': '616',
+    'Z845': '930',
+    'Z847': '930',
+    'Z848': '930',
+    'Z854': '682',
+}
 
 
 def render_entry(entry):
@@ -741,7 +886,10 @@ def render_entry(entry):
         if meta.get("hidden"): cls += " srch"
         if has_info: cls += " has-info"
         extra_attr = ' data-expand="iss"' if is_expand else ""
-        syn_attr = f' data-syn="{esc(meta["syn"])}"' if meta.get("syn") else ""
+        dxv = DX_MAP.get(code)
+        syn_all = " ".join(x for x in [meta.get("syn") or "", dxv.replace("/", " ") if dxv else ""] if x)
+        syn_attr = f' data-syn="{esc(syn_all)}"' if syn_all else ""
+        dx_html = f'<span class="dx" title="Suggested diagnostic code">Dx {dxv}</span>' if dxv else ""
         exp_hint = '<span class="exp-hint" aria-hidden="true">\u25b8 ISS calc</span>' if is_expand else ""
         info_btn = '<button class="info-btn" type="button" aria-label="More info">i</button>' if has_info else ""
         out = (f'<div class="{cls}" data-code="{code.lower()}" data-desc="{d.lower()}" '
@@ -749,7 +897,7 @@ def render_entry(entry):
                f'<button class="star" type="button" aria-label="Toggle favourite" data-fav="{code}">\u2606</button>'
                f'<span class="code">{code}</span>'
                f'<span class="desc">{d}{fx_html}{badge_html}{new_html}{exp_hint}</span>'
-               f'<span class="price">{esc(price)}</span>{info_btn}</div>')
+               f'<span class="price">{esc(price)}</span>{info_btn}{dx_html}</div>')
         if has_info:
             out += f'<div class="info-panel">{esc(meta["info"])}</div>'
         if is_expand:
